@@ -1,0 +1,4 @@
+import { Form } from '@/components/form';
+import { login } from './actions';
+import { safeNext } from '@/lib/validation';
+export default async function Login({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}) {const params=await searchParams;return <main id="main" className="auth"><p className="brand">◒ Together</p><section className="card"><h1>Good times start here.</h1><p className="muted">One private place for your people and plans.</p>{params.error && <p role="alert" className="error">Your sign-in link is invalid or expired. Request a new link below.</p>}<Form action={login} label="Email me a sign-in link"><div><label htmlFor="email">Email address</label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254}/></div><input type="hidden" name="next" value={safeNext(params.next)}/></Form><p className="muted">No password needed. New here? Your first sign-in creates your account.</p></section></main>;}

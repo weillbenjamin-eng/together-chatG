@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import { session } from '@/lib/auth/session';
+export default async function Dashboard(){const {client,user}=await session();const {data}=await client.from('users').select('display_name').eq('id',user.id).single();return <><p className="muted">YOUR SHARED LIFE</p><h1>Hello, {data?.display_name || 'friend'}.</h1><section className="card"><h2>Make room for good company</h2><p>Create a group and add your friends, even if they have not joined Together yet.</p><Link className="button" href="/groups">Explore your groups</Link></section><p className="muted">This release covers identity and groups. Events, tasks, balances and memories arrive in later phases.</p></>;}

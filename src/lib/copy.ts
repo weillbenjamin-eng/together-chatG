@@ -1,0 +1,1 @@
+export const copy={brand:'Together',tagline:'Your social life, organized.',friendStatus:'Not on Together yet',inviteNotice:'Joining creates a new member profile. It does not claim a friend profile or acknowledge any expenses.'};
